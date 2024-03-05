@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
+import 'Card.dart';
+import 'navbar.dart';
 
 void main() {
   runApp(const MyApp());
@@ -39,14 +42,20 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(widget.title),
+        actions: [
+          const Text("Hello"),
+          IconButton(icon: SvgPicture.asset(
+        'assets/images/vector0.svg',
+        semanticsLabel: 'vector0'
+      ), onPressed: () {  },)
+        ],
       ),
-      body: Center(
+      body:  const Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            const Text(
-              'Fit Fuel',
-            )
+            Depth1frame0Widget(),
+            Depth3frame0Widget(textunder:"Yoga for Beginners", text: '15min | Intermediate', imageUrl: 'assets/images/yogaPose.png', key: Key("1"),)
           ]
         ),
       ),
