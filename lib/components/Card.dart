@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 
-class Depth3frame0Widget extends StatefulWidget {
+class photoCard extends StatefulWidget {
   final String text;
   final String imageUrl;
   final String textunder;
 
-  const Depth3frame0Widget({required Key key, required this.text, required this.textunder, required this.imageUrl}) : super(key: key);
+  const photoCard({required Key key, required this.text, required this.textunder, required this.imageUrl}) : super(key: key);
 
   @override
-  _Depth3frame0WidgetState createState() => _Depth3frame0WidgetState();
+  _photoCardState createState() => _photoCardState();
 }
 
-class _Depth3frame0WidgetState extends State<Depth3frame0Widget> {
+class _photoCardState extends State<photoCard> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -68,7 +68,7 @@ class _Depth3frame0WidgetState extends State<Depth3frame0Widget> {
                               textAlign: TextAlign.left,
                               style: const TextStyle(
                                 color: Color.fromRGBO(33, 25, 10, 1),
-                                fontFamily: 'Lexend',
+                                fontFamily: 'LexendMedium',
                                 fontSize: 16,
                                 letterSpacing: 0,
                                 fontWeight: FontWeight.normal,
@@ -90,7 +90,7 @@ class _Depth3frame0WidgetState extends State<Depth3frame0Widget> {
                               textAlign: TextAlign.left,
                               style: const TextStyle(
                                 color: Color.fromRGBO(160, 124, 28, 1),
-                                fontFamily: 'Lexend',
+                                fontFamily: 'LexendMedium',
                                 fontSize: 14,
                                 letterSpacing: 0,
                                 fontWeight: FontWeight.normal,
