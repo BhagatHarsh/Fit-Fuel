@@ -1,3 +1,4 @@
+import 'package:fitfuel/components/landScapeCard.dart';
 import 'package:fitfuel/components/mainTitle.dart';
 import 'package:fitfuel/components/navbar.dart';
 import 'package:flutter/material.dart';
@@ -18,7 +19,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        backgroundColor: const Color.fromRGBO(160, 124, 28, 1),
         title: Text(widget.title),
         actions: [
           IconButton(
@@ -28,7 +29,9 @@ class _MyHomePageState extends State<MyHomePage> {
           )
         ],
       ),
-      body: const Center(
+      body: const SingleChildScrollView(
+        scrollDirection: Axis.vertical,
+        padding: EdgeInsets.fromLTRB(10.0, 0.0, 10.0, 0.0),
         child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
@@ -37,26 +40,76 @@ class _MyHomePageState extends State<MyHomePage> {
                 key: Key("1"),
                 titleText: 'Pick a workout',
               ),
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                padding: EdgeInsets.fromLTRB(10.0, 0.0, 10.0, 0.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    photoCard(
+                      textunder: 'Yoga for Beginners',
+                      text: '15min • Intermediate',
+                      imageUrl: 'assets/images/yogaPose.png',
+                      key: Key("1"),
+                    ),
+                    SizedBox(
+                      width: 20,
+                    ),
+                    photoCard(
+                      textunder: 'Strength Training: Legs',
+                      text: '45min • Advanced',
+                      imageUrl: 'assets/images/strengthTraining.png',
+                      key: Key("2"),
+                    ),
+                    SizedBox(
+                      width: 20,
+                    ),
+                    photoCard(
+                      textunder: 'Yoga for Beginners',
+                      text: '15min • Intermediate',
+                      imageUrl: 'assets/images/yogaPose.png',
+                      key: Key("3"),
+                    ),
+                    SizedBox(
+                      width: 20,
+                    ),
+                    photoCard(
+                      textunder: 'Strength Training: Legs',
+                      text: '45min • Advanced',
+                      imageUrl: 'assets/images/strengthTraining.png',
+                      key: Key("4"),
+                    ),
+                  ],
+                ),
+              ),
+              TitleWiget(
+                key: Key("7"),
+                titleText: 'Fitness Programs',
+              ),
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                padding: EdgeInsets.fromLTRB(10.0, 0.0, 10.0, 0.0),
+                child:
               Row(
-                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  photoCard(
-                    textunder: 'Yoga for Beginners',
-                    text: '15min • Intermediate',
-                    imageUrl: 'assets/images/yogaPose.png',
+                  landScapeCard(
                     key: Key("1"),
+                    imageUrl: 'assets/images/SunRise.png',
+                    text: 'Yoga during sunrise',
+                    textunder: 'Intermediate',
                   ),
                   SizedBox(
                     width: 20,
                   ),
-                  photoCard(
-                    textunder: 'Strength Training: Legs',
-                    text: '45min • Advanced',
-                    imageUrl: 'assets/images/strengthTraining.png',
+                  landScapeCard(
                     key: Key("2"),
-                  ),
+                    imageUrl: 'assets/images/benchpress.png',
+                    text: 'Power Lifting',
+                    textunder: 'Advanced',
+                  )
                 ],
-              )
+              ),
+              ),
             ]),
       ),
     );
