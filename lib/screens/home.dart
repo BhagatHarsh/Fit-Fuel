@@ -1,9 +1,10 @@
+import 'package:fitfuel/components/footer/footer.dart';
 import 'package:fitfuel/components/landScapeCard.dart';
 import 'package:fitfuel/components/mainTitle.dart';
 import 'package:fitfuel/components/navbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import '../components/Card.dart';
+import '../components/card.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
@@ -23,95 +24,100 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
         actions: [
           IconButton(
-            icon: SvgPicture.asset('assets/images/vector0.svg',
-                semanticsLabel: 'vector0'),
+            icon: SvgPicture.asset('assets/images/bell.svg',
+                semanticsLabel: 'bell'),
             onPressed: () {},
           )
         ],
       ),
-      body: const SingleChildScrollView(
-        scrollDirection: Axis.vertical,
-        padding: EdgeInsets.fromLTRB(10.0, 0.0, 10.0, 0.0),
-        child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              NavBar(),
-              TitleWiget(
-                key: Key("1"),
-                titleText: 'Pick a workout',
-              ),
-              SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                padding: EdgeInsets.fromLTRB(10.0, 0.0, 10.0, 0.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
+      body: const Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            NavBar(),
+            Expanded(
+              child: SingleChildScrollView(
+                scrollDirection: Axis.vertical,
+                child: Column(
                   children: [
-                    photoCard(
-                      textunder: 'Yoga for Beginners',
-                      text: '15min • Intermediate',
-                      imageUrl: 'assets/images/yogaPose.png',
+                    TitleWiget(
                       key: Key("1"),
+                      titleText: 'Pick a workout',
                     ),
-                    SizedBox(
-                      width: 20,
+                    SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      padding: EdgeInsets.fromLTRB(10.0, 0.0, 10.0, 0.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          photoCard(
+                            textunder: 'Yoga for Beginners',
+                            text: '15min • Intermediate',
+                            imageUrl: 'assets/images/yogaPose.png',
+                            key: Key("1"),
+                          ),
+                          SizedBox(
+                            width: 20,
+                          ),
+                          photoCard(
+                            textunder: 'Strength Training: Legs',
+                            text: '45min • Advanced',
+                            imageUrl: 'assets/images/strengthTraining.png',
+                            key: Key("2"),
+                          ),
+                          SizedBox(
+                            width: 20,
+                          ),
+                          photoCard(
+                            textunder: 'Yoga for Beginners',
+                            text: '15min • Intermediate',
+                            imageUrl: 'assets/images/yogaPose.png',
+                            key: Key("3"),
+                          ),
+                          SizedBox(
+                            width: 20,
+                          ),
+                          photoCard(
+                            textunder: 'Strength Training: Legs',
+                            text: '45min • Advanced',
+                            imageUrl: 'assets/images/strengthTraining.png',
+                            key: Key("4"),
+                          ),
+                        ],
+                      ),
                     ),
-                    photoCard(
-                      textunder: 'Strength Training: Legs',
-                      text: '45min • Advanced',
-                      imageUrl: 'assets/images/strengthTraining.png',
-                      key: Key("2"),
+                    TitleWiget(
+                      key: Key("7"),
+                      titleText: 'Fitness Programs',
                     ),
-                    SizedBox(
-                      width: 20,
-                    ),
-                    photoCard(
-                      textunder: 'Yoga for Beginners',
-                      text: '15min • Intermediate',
-                      imageUrl: 'assets/images/yogaPose.png',
-                      key: Key("3"),
-                    ),
-                    SizedBox(
-                      width: 20,
-                    ),
-                    photoCard(
-                      textunder: 'Strength Training: Legs',
-                      text: '45min • Advanced',
-                      imageUrl: 'assets/images/strengthTraining.png',
-                      key: Key("4"),
+                    SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      padding: EdgeInsets.fromLTRB(10.0, 0.0, 10.0, 0.0),
+                      child: Row(
+                        children: [
+                          landScapeCard(
+                            key: Key("1"),
+                            imageUrl: 'assets/images/SunRise.png',
+                            text: 'Yoga during sunrise',
+                            textunder: 'Intermediate',
+                          ),
+                          SizedBox(
+                            width: 20,
+                          ),
+                          landScapeCard(
+                            key: Key("2"),
+                            imageUrl: 'assets/images/benchpress.png',
+                            text: 'Power Lifting',
+                            textunder: 'Advanced',
+                          )
+                        ],
+                      ),
                     ),
                   ],
                 ),
               ),
-              TitleWiget(
-                key: Key("7"),
-                titleText: 'Fitness Programs',
-              ),
-              SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                padding: EdgeInsets.fromLTRB(10.0, 0.0, 10.0, 0.0),
-                child:
-              Row(
-                children: [
-                  landScapeCard(
-                    key: Key("1"),
-                    imageUrl: 'assets/images/SunRise.png',
-                    text: 'Yoga during sunrise',
-                    textunder: 'Intermediate',
-                  ),
-                  SizedBox(
-                    width: 20,
-                  ),
-                  landScapeCard(
-                    key: Key("2"),
-                    imageUrl: 'assets/images/benchpress.png',
-                    text: 'Power Lifting',
-                    textunder: 'Advanced',
-                  )
-                ],
-              ),
-              ),
-            ]),
-      ),
+            ),
+            FooterWidget(),
+          ]),
     );
   }
 }

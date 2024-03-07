@@ -1,3 +1,4 @@
+import 'package:fitfuel/components/responsive.dart';
 import 'package:flutter/material.dart';
 
 class TitleWiget extends StatefulWidget {
@@ -36,13 +37,14 @@ class _TitleWigetState extends State<TitleWiget> {
                       Text(
                         widget.titleText,
                         textAlign: TextAlign.left,
+                        textScaleFactor: ScaleSize.textScaleFactor(context),
                         style: const TextStyle(
                             color: Color.fromRGBO(33, 25, 10, 1),
                             fontFamily: 'LexendBold',
                             fontSize: 22,
                             letterSpacing: -0.33000001311302185,
                             fontWeight: FontWeight.normal,
-                            height: 1.25),
+                            height: 1.25,),
                       ),
                     ],
                   ),

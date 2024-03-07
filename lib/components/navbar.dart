@@ -1,3 +1,4 @@
+import 'package:fitfuel/components/responsive.dart';
 import 'package:flutter/material.dart';
 
 class NavBar extends StatefulWidget {
@@ -19,6 +20,7 @@ class _NavBarState extends State<NavBar> {
         top: 20,
         bottom: 20,
       ),
+      color: const Color.fromARGB(0, 237, 245, 2),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
@@ -31,13 +33,15 @@ class _NavBarState extends State<NavBar> {
             child: Text(
               'Home',
               textAlign: TextAlign.center,
+              textScaleFactor: ScaleSize.textScaleFactor(context),
               style: TextStyle(
-                  color: selectedItem == 1 ? selectedColor: unSelectedColor,
-                  fontFamily: selectedItem == 1 ? 'LexendBold' : 'LexendMedium',
-                  fontSize: 14,
-                  letterSpacing: 0.20999999344348907,
-                  fontWeight: FontWeight.normal,
-                  height: 1.5),
+                color: selectedItem == 1 ? selectedColor : unSelectedColor,
+                fontFamily: selectedItem == 1 ? 'LexendBold' : 'LexendMedium',
+                fontSize: 14,
+                letterSpacing: 0.20999999344348907,
+                fontWeight: FontWeight.normal,
+                height: 1.5,
+              ),
             ),
           ),
           GestureDetector(
@@ -49,13 +53,15 @@ class _NavBarState extends State<NavBar> {
             child: Text(
               'Challenges',
               textAlign: TextAlign.center,
+              textScaleFactor: ScaleSize.textScaleFactor(context),
               style: TextStyle(
-                  color: selectedItem == 2 ? selectedColor: unSelectedColor,
-                  fontFamily: selectedItem == 2 ? 'LexendBold' : 'LexendMedium',
-                  fontSize: 14,
-                  letterSpacing: 0.20999999344348907,
-                  fontWeight: FontWeight.normal,
-                  height: 1.5),
+                color: selectedItem == 2 ? selectedColor : unSelectedColor,
+                fontFamily: selectedItem == 2 ? 'LexendBold' : 'LexendMedium',
+                fontSize: 14,
+                letterSpacing: 0.20999999344348907,
+                fontWeight: FontWeight.normal,
+                height: 1.5,
+              ),
             ),
           ),
           GestureDetector(
@@ -67,13 +73,15 @@ class _NavBarState extends State<NavBar> {
             child: Text(
               'Join',
               textAlign: TextAlign.center,
+              textScaleFactor: ScaleSize.textScaleFactor(context),
               style: TextStyle(
-                  color: selectedItem == 3 ? selectedColor: unSelectedColor,
-                  fontFamily: selectedItem == 3 ? 'LexendBold' : 'LexendMedium',
-                  fontSize: 14,
-                  letterSpacing: 0.20999999344348907,
-                  fontWeight: FontWeight.normal,
-                  height: 1.5),
+                color: selectedItem == 3 ? selectedColor : unSelectedColor,
+                fontFamily: selectedItem == 3 ? 'LexendBold' : 'LexendMedium',
+                fontSize: 14,
+                letterSpacing: 0.20999999344348907,
+                fontWeight: FontWeight.normal,
+                height: 1.5,
+              ),
             ),
           ),
         ],

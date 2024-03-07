@@ -1,3 +1,4 @@
+import 'package:fitfuel/components/responsive.dart';
 import 'package:flutter/material.dart';
 
 class landScapeCard extends StatefulWidget {
@@ -72,6 +73,7 @@ class _landScapeCardState extends State<landScapeCard> {
                             Text(
                               widget.text,
                               textAlign: TextAlign.left,
+                              textScaleFactor: ScaleSize.textScaleFactor(context),
                               style: const TextStyle(
                                   color: Color.fromRGBO(33, 25, 10, 1),
                                   fontFamily: 'LexendMedium',
@@ -94,6 +96,7 @@ class _landScapeCardState extends State<landScapeCard> {
                             Text(
                               widget.textunder,
                               textAlign: TextAlign.left,
+                              textScaleFactor: ScaleSize.textScaleFactor(context),
                               style: const TextStyle(
                                   color: Color.fromRGBO(160, 124, 28, 1),
                                   fontFamily: 'LexendMedium',
