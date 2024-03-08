@@ -1,89 +1,65 @@
-import 'package:fitfuel/components/footer/icons.dart';
 import 'package:flutter/material.dart';
+import 'package:fitfuel/components/footer/icons.dart';
 
 class FooterWidget extends StatefulWidget {
-  const FooterWidget({super.key});
+ const FooterWidget({Key? key}) : super(key: key);
 
-  @override
-  _FooterWidgetState createState() => _FooterWidgetState();
+ @override
+ _FooterWidgetState createState() => _FooterWidgetState();
+}
+
+class IconData {
+ final String name;
+ final String path;
+ final Key key;
+
+ IconData({required this.name, required this.path, required this.key});
 }
 
 class _FooterWidgetState extends State<FooterWidget> {
-  int selected = 1;
+ int selected = 1;
+ late List<IconData> icons;
 
-  @override
-  Widget build(BuildContext context) {
+ @override
+ void initState() {
+    super.initState();
+    icons = [
+      IconData(name: 'Home', path: 'assets/images/svg/home.svg', key: const Key("1")),
+      IconData(name: 'Workout', path: 'assets/images/svg/workout.svg', key: const Key("2")),
+      IconData(name: 'Food', path: 'assets/images/svg/food.svg', key: const Key("3")),
+      IconData(name: 'Profile', path: 'assets/images/svg/profile.svg', key: const Key("4")),
+    ];
+ }
+
+ @override
+ Widget build(BuildContext context) {
     return Container(
       color: Colors.white,
-      padding: const EdgeInsets.all(10.0), // Add padding here
+      padding: const EdgeInsets.all(10.0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           const SizedBox(
             width: 20,
           ),
-          GestureDetector(
-            onTap: () {
-              selected = 1;
-              setState(() {});
-            },
-            child: IconContainer(
-              key: const Key("1"),
-              iconName: 'Home',
-              iconPath: 'assets/images/home.svg',
-              selected: selected == 1,
-            ),
-          ),
-          const SizedBox(
-            width: 20,
-          ),
-          GestureDetector(
-            onTap: () {
-              selected = 2;
-              setState(() {});
-            },
-            child: IconContainer(
-              key: const Key("2"),
-              iconName: 'Workout',
-              iconPath: 'assets/images/workout.svg',
-              selected: selected == 2,
-            ),
-          ),
-          const SizedBox(
-            width: 20,
-          ),
-          GestureDetector(
-            onTap: () {
-              selected = 3;
-              setState(() {});
-            },
-            child: IconContainer(
-              key: const Key("3"),
-              iconName: 'Food',
-              iconPath: 'assets/images/food.svg',
-              selected: selected == 3,
-            ),
-          ),
-          const SizedBox(
-            width: 20,
-          ),
-          GestureDetector(
-            onTap: () {
-              selected = 4;
-              setState(() {});
-            },
-            child: IconContainer(
-              key: const Key("4"),
-              iconName: 'Profile',
-              iconPath: 'assets/images/profile.svg',
-              selected: selected == 4,
-            ),
-          ),
+          ...icons.map((icon) => GestureDetector(
+                onTap: () {
+                 setState(() {
+                    selected = icons.indexOf(icon) + 1;
+                 });
+                },
+                child: IconContainer(
+                 key: icon.key,
+                 iconName: icon.name,
+                 iconPath: icon.path,
+                 selected: selected == icons.indexOf(icon) + 1,
+                ),
+              )).toList(),
           const SizedBox(
             width: 20,
           ),
         ],
       ),
     );
-  }
+ }
 }
