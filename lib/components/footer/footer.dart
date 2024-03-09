@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:fitfuel/components/footer/icons.dart';
 
 class FooterWidget extends StatefulWidget {
- const FooterWidget({Key? key}) : super(key: key);
+  final Function(int) onIconSelected;
+ const FooterWidget({Key? key, required this.onIconSelected}) : super(key: key);
 
  @override
  _FooterWidgetState createState() => _FooterWidgetState();
@@ -47,6 +48,7 @@ class _FooterWidgetState extends State<FooterWidget> {
                  setState(() {
                     selected = icons.indexOf(icon) + 1;
                  });
+                 widget.onIconSelected(icons.indexOf(icon));
                 },
                 child: IconContainer(
                  key: icon.key,

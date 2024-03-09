@@ -1,16 +1,11 @@
+import 'package:fitfuel/components/navbar.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:fitfuel/components/footer/footer.dart';
 import 'package:fitfuel/components/landScapeCard.dart';
 import 'package:fitfuel/components/mainTitle.dart';
-import 'package:fitfuel/components/navbar.dart';
 import '../components/card.dart';
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key, required this.title}) : super(key: key);
-
-  final String title;
-
+  const MyHomePage({Key? key}) : super(key: key);
   @override
   State<MyHomePage> createState() => _MyHomePageState();
 }
@@ -76,22 +71,10 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: const Color.fromRGBO(160, 124, 28, 1),
-        title: Text(widget.title),
-        actions: [
-          IconButton(
-            icon: SvgPicture.asset('assets/images/svg/bell.svg',
-                semanticsLabel: 'bell'),
-            onPressed: () {},
-          )
-        ],
-      ),
-      body: Column(
+    return Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          const NavBar(),
+          NavBar(),
           Expanded(
             child: SingleChildScrollView(
               scrollDirection: Axis.vertical,
@@ -143,9 +126,7 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
           ),
-          const FooterWidget(),
         ],
-      ),
-    );
+      );
   }
 }

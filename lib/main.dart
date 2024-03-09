@@ -1,4 +1,5 @@
 import 'package:fitfuel/screens/home.dart';
+import 'package:fitfuel/screens/skeleton.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -12,13 +13,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Fit Fuel',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.teal),
         useMaterial3: true,
       ),
       debugShowCheckedModeBanner: false,
-      home: const MyHomePage(title: 'Fit Fuel'),
+      // home: const MyHomePage(title: 'Fit Fuel'),
+      home: const SkeletonPage(),
     );
   }
 }
