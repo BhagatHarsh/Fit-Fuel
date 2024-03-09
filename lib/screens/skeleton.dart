@@ -1,11 +1,10 @@
-import 'package:fitfuel/components/button.dart';
+import 'package:fitfuel/components/every/button.dart';
 import 'package:fitfuel/screens/food.dart';
 import 'package:fitfuel/screens/profile.dart';
 import 'package:fitfuel/screens/workout.dart';
 import 'package:flutter/material.dart';
 import 'package:fitfuel/components/footer/footer.dart';
 import 'package:fitfuel/screens/home.dart';
-import 'package:flutter_svg/svg.dart';
 
 class SkeletonPage extends StatefulWidget {
   const SkeletonPage({super.key});
@@ -18,7 +17,7 @@ class _SkeletonPageState extends State<SkeletonPage> {
   int _currentIndex = 0;
   final PageController _pageController = PageController();
   final List<String> _screens = [
-    'Home',
+    'Fit Fuel',
     'Workout',
     'Food',
     'Profile',
@@ -48,11 +47,11 @@ class _SkeletonPageState extends State<SkeletonPage> {
             _currentIndex = index;
           });
         },
-        children: <Widget>[
+        children: const <Widget>[
           MyHomePage(),
-          WorkOutPage(), // Placeholder for Workout screen
-          FoodPage(), // Placeholder for Food screen
-          ProfilePage(), // Placeholder for Profile screen
+          WorkOutPage(),
+          FoodPage(),
+          ProfilePage(),
         ],
       ),
       bottomNavigationBar: FooterWidget(
@@ -62,7 +61,7 @@ class _SkeletonPageState extends State<SkeletonPage> {
           });
           _pageController.animateToPage(
             index,
-            duration: Duration(milliseconds: 300),
+            duration: const Duration(milliseconds: 300),
             curve: Curves.easeInOut,
           );
         },

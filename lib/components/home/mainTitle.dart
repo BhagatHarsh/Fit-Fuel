@@ -1,4 +1,4 @@
-import 'package:fitfuel/components/responsive.dart';
+import 'package:fitfuel/components/every/responsive.dart';
 import 'package:flutter/material.dart';
 
 class TitleWiget extends StatefulWidget {

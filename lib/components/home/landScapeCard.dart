@@ -1,21 +1,41 @@
-import 'package:fitfuel/components/responsive.dart';
+import 'package:fitfuel/components/every/responsive.dart';
 import 'package:flutter/material.dart';
 
-class photoCard extends StatefulWidget {
+class LandscapeCardData {
+  final String text;
+  final String textUnder;
+  final String imageUrl;
+  final Key key;
+
+  LandscapeCardData(
+      {required this.text,
+      required this.textUnder,
+      required this.imageUrl,
+      required this.key});
+}
+
+class landScapeCard extends StatefulWidget {
   final String text;
   final String imageUrl;
   final String textunder;
-
-  const photoCard({required Key key, required this.text, required this.textunder, required this.imageUrl}) : super(key: key);
+  const landScapeCard(
+      {required Key key,
+      required this.text,
+      required this.textunder,
+      required this.imageUrl})
+      : super(key: key);
 
   @override
-  _photoCardState createState() => _photoCardState();
+  _landScapeCardState createState() => _landScapeCardState();
 }
 
-class _photoCardState extends State<photoCard> {
+class _landScapeCardState extends State<landScapeCard> {
   @override
   Widget build(BuildContext context) {
-    return Container(
+    // Figma Flutter Generator landScapeCard - FRAME - VERTICAL
+
+    return // Figma Flutter Generator landScapeCard - FRAME - VERTICAL
+        Container(
       decoration: const BoxDecoration(
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(8),
@@ -29,22 +49,19 @@ class _photoCardState extends State<photoCard> {
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
           Container(
-            width: 171.53125,
-            height: 171.53125,
-            decoration: BoxDecoration(
-              borderRadius: const BorderRadius.only(
-                topLeft: Radius.circular(12),
-                topRight: Radius.circular(12),
-                bottomLeft: Radius.circular(12),
-                bottomRight: Radius.circular(12),
+              width: 240,
+              height: 135,
+              decoration: BoxDecoration(
+                borderRadius: const BorderRadius.only(
+                  topLeft: Radius.circular(12),
+                  topRight: Radius.circular(12),
+                  bottomLeft: Radius.circular(12),
+                  bottomRight: Radius.circular(12),
+                ),
+                image: DecorationImage(
+                    image: AssetImage(widget.imageUrl), fit: BoxFit.fitWidth),
               ),
-              image: DecorationImage(
-                image: AssetImage(widget.imageUrl), // Use NetworkImage for dynamic image URLs
-                fit: BoxFit.fitWidth,
-              ),
-            ),
-            child: const Stack(children: <Widget>[]),
-          ),
+              child: const Stack(children: <Widget>[])),
           const SizedBox(height: 0),
           Container(
             decoration: const BoxDecoration(),
@@ -54,28 +71,29 @@ class _photoCardState extends State<photoCard> {
               children: <Widget>[
                 Container(
                   decoration: const BoxDecoration(),
-                  padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 0),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 0, vertical: 0),
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
                       Container(
                         decoration: const BoxDecoration(),
-                        padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 0),
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 0, vertical: 0),
                         child: Column(
                           mainAxisSize: MainAxisSize.min,
                           children: <Widget>[
                             Text(
-                              widget.text, // Use widget.text to get dynamic text
+                              widget.text,
                               textAlign: TextAlign.left,
                               textScaleFactor: ScaleSize.textScaleFactor(context),
                               style: const TextStyle(
-                                color: Color.fromRGBO(33, 25, 10, 1),
-                                fontFamily: 'LexendMedium',
-                                fontSize: 16,
-                                letterSpacing: 0,
-                                fontWeight: FontWeight.normal,
-                                height: 1.5,
-                              ),
+                                  color: Color.fromRGBO(33, 25, 10, 1),
+                                  fontFamily: 'LexendMedium',
+                                  fontSize: 16,
+                                  letterSpacing: 0,
+                                  fontWeight: FontWeight.normal,
+                                  height: 1.5),
                             ),
                           ],
                         ),
@@ -83,7 +101,8 @@ class _photoCardState extends State<photoCard> {
                       const SizedBox(height: 0),
                       Container(
                         decoration: const BoxDecoration(),
-                        padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 0),
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 0, vertical: 0),
                         child: Column(
                           mainAxisSize: MainAxisSize.min,
                           children: <Widget>[
@@ -92,13 +111,12 @@ class _photoCardState extends State<photoCard> {
                               textAlign: TextAlign.left,
                               textScaleFactor: ScaleSize.textScaleFactor(context),
                               style: const TextStyle(
-                                color: Color.fromRGBO(160, 124, 28, 1),
-                                fontFamily: 'LexendMedium',
-                                fontSize: 14,
-                                letterSpacing: 0,
-                                fontWeight: FontWeight.normal,
-                                height: 1.5,
-                              ),
+                                  color: Color.fromRGBO(160, 124, 28, 1),
+                                  fontFamily: 'LexendMedium',
+                                  fontSize: 14,
+                                  letterSpacing: 0,
+                                  fontWeight: FontWeight.normal,
+                                  height: 1.5),
                             ),
                           ],
                         ),

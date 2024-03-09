@@ -1,4 +1,3 @@
-import 'package:fitfuel/screens/home.dart';
 import 'package:fitfuel/screens/skeleton.dart';
 import 'package:flutter/material.dart';
 

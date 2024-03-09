@@ -1,39 +1,13 @@
-import 'package:fitfuel/components/navbar.dart';
+import 'package:fitfuel/components/home/navbar.dart';
 import 'package:flutter/material.dart';
-import 'package:fitfuel/components/landScapeCard.dart';
-import 'package:fitfuel/components/mainTitle.dart';
-import '../components/card.dart';
+import 'package:fitfuel/components/home/landScapeCard.dart';
+import 'package:fitfuel/components/home/mainTitle.dart';
+import '../components/home/card.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key}) : super(key: key);
   @override
   State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class PhotoCardData {
-  final String textUnder;
-  final String text;
-  final String imageUrl;
-  final Key key;
-
-  PhotoCardData(
-      {required this.textUnder,
-      required this.text,
-      required this.imageUrl,
-      required this.key});
-}
-
-class LandscapeCardData {
-  final String text;
-  final String textUnder;
-  final String imageUrl;
-  final Key key;
-
-  LandscapeCardData(
-      {required this.text,
-      required this.textUnder,
-      required this.imageUrl,
-      required this.key});
 }
 
 class _MyHomePageState extends State<MyHomePage> {
@@ -74,7 +48,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          NavBar(),
+          const NavBar(),
           Expanded(
             child: SingleChildScrollView(
               scrollDirection: Axis.vertical,
