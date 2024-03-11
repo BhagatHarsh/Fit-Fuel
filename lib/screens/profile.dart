@@ -1,8 +1,11 @@
 import 'package:fitfuel/components/profile/age.dart';
 import 'package:fitfuel/components/profile/editButton.dart';
-import 'package:fitfuel/components/profile/stats.dart';
+import 'package:fitfuel/components/profile/statsCatalogue.dart';
+import 'package:fitfuel/components/profile/Heading.dart';
 import 'package:fitfuel/components/profile/subHeading.dart';
+import 'package:fitfuel/components/profile/subsubHeading.dart';
 import 'package:fitfuel/components/profile/userName.dart';
+import 'package:fitfuel/components/profile/weekly.dart';
 import 'package:flutter/material.dart';
 
 class ProfilePage extends StatefulWidget {
@@ -53,51 +56,27 @@ class _ProfilePageState extends State<ProfilePage> {
               child: SubHeadingWidget(subHeading: 'Fitness Summary'),
             ),
             SizedBox(height: 20),
-            Column(
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    StatsWidget(
-                      title: 'Weight',
-                      parameter: '110 lbs',
-                    ),
-                    StatsWidget(
-                      title: 'Height',
-                      parameter: "5'4''",
-                    ),
-                  ],
-                ),
-                SizedBox(height: 20),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    StatsWidget(
-                      title: 'Age',
-                      parameter: '28 years',
-                    ),
-                    StatsWidget(
-                      title: 'BMI',
-                      parameter: "19.0",
-                    ),
-                  ],
-                ),
-                SizedBox(height: 20),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    StatsWidget(
-                      title: 'Body Fat',
-                      parameter: '22 %',
-                    ),
-                    StatsWidget(
-                      title: 'Water',
-                      parameter: "56 %",
-                    ),
-                  ],
-                ),
-              ],
-            )
+            StatusCatalogue(),
+            SizedBox(height: 20),
+            Padding(
+              padding: EdgeInsets.fromLTRB(20, 10, 0, 0),
+              child: SubHeadingWidget(subHeading: 'Activity'),
+            ),
+            Padding(
+              padding: EdgeInsets.fromLTRB(30, 20, 0, 10),
+              child: SubSubHeadingWidget(subsubHeading: 'Calories Burned'),
+            ),
+            Padding(
+              padding: EdgeInsets.fromLTRB(30, 0, 0, 0),
+              child: HeadingWidget(heading: '2,000 cal'),
+            ),
+            Padding(
+              padding: EdgeInsets.fromLTRB(30, 0, 0, 0),
+              child: WeeklyStatusWidget(
+                title: 'This Week',
+                change: '+10 %',
+              ),
+            ),
           ],
         ),
       ),
