@@ -19,13 +19,13 @@ class _MyHomePageState extends State<MyHomePage> {
     super.initState();
     photoCards = [
       PhotoCardData(
-          textUnder: 'Yoga for Beginners',
-          text: '15min • Intermediate',
+          text: 'Yoga for Beginners',
+          textUnder: '15min • Intermediate',
           imageUrl: 'assets/images/png/yogaPose.png',
           key: const Key("1")),
       PhotoCardData(
-          textUnder: 'Strength Training: Legs',
-          text: '45min • Advanced',
+          text: 'Strength Training: Legs',
+          textUnder: '45min • Advanced',
           imageUrl: 'assets/images/png/strengthTraining.png',
           key: const Key("2")),
     ];
@@ -46,7 +46,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           const NavBar(),
           Expanded(
@@ -59,7 +59,6 @@ class _MyHomePageState extends State<MyHomePage> {
                     scrollDirection: Axis.horizontal,
                     padding: const EdgeInsets.fromLTRB(10.0, 0.0, 10.0, 0.0),
                     child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
                       children: photoCards
                           .expand((card) => [
                                 photoCard(

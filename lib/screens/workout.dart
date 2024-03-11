@@ -57,7 +57,11 @@ class _WorkOutPageState extends State<WorkOutPage> {
                 SizedBox(
                   width: 10,
                 ),
-                ChangeButton()
+                ChangeButton(
+                  text: 'Change',
+                  scale: 0.2,
+                  height: 50,
+                )
               ],
             ),
           ),
