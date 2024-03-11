@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class EditProfileButton extends StatelessWidget {
-  const EditProfileButton({Key? key}) : super(key: key);
+class ChangeButton extends StatelessWidget {
+  const ChangeButton({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -9,7 +9,7 @@ class EditProfileButton extends StatelessWidget {
     double screenWidth = MediaQuery.of(context).size.width;
 
     // Calculate a big size for the button, for example, 95% of the screen width
-    double buttonWidth = screenWidth * 0.95;
+    double buttonWidth = screenWidth * 0.2;
 
     return InkWell(
       onTap: () {},
@@ -22,7 +22,7 @@ class EditProfileButton extends StatelessWidget {
         ),
         child: const Center(
           child: Text(
-            'Edit Profile',
+            'Change',
             style: TextStyle(
               color: Color.fromRGBO(33, 25, 10, 1),
               fontFamily: 'LexendMedium',

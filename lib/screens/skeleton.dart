@@ -18,7 +18,7 @@ class _SkeletonPageState extends State<SkeletonPage> {
   final PageController _pageController = PageController();
   final List<String> _screens = [
     'Fit Fuel',
-    'Workout',
+    'Workout Plan',
     'Food',
     'Profile',
   ];
