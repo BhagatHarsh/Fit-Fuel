@@ -49,7 +49,7 @@ class _ProfilePageState extends State<ProfilePage> {
             ),
             Padding(
               padding: EdgeInsets.all(10.0),
-              child: Center(child: Flexible(child: EditProfileButton())),
+              child: Center(child: EditProfileButton()),
             ),
             Padding(
               padding: EdgeInsets.fromLTRB(20, 10, 0, 0),
