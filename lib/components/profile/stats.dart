@@ -12,7 +12,8 @@ class StatsWidget extends StatefulWidget {
 class _StatsWidgetState extends State<StatsWidget> {
   @override
   Widget build(BuildContext context) {
-    // Figma Flutter Generator StatsWidget - FRAME - VERTICAL
+    double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
 
     return Container(
       decoration: BoxDecoration(
@@ -27,7 +28,7 @@ class _StatsWidgetState extends State<StatsWidget> {
           width: 1,
         ),
       ),
-      padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 24),
+      padding: EdgeInsets.symmetric(horizontal: width * 0.12, vertical: 24),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
