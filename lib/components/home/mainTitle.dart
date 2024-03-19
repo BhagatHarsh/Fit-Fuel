@@ -13,7 +13,6 @@ class TitleWiget extends StatefulWidget {
 class _TitleWigetState extends State<TitleWiget> {
   @override
   Widget build(BuildContext context) {
-    // Figma Flutter Generator TitleWiget - FRAME - HORIZONTAL
 
     return Container(
       decoration: const BoxDecoration(),

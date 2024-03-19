@@ -1,105 +1,66 @@
-import 'package:fitfuel/components/home/navbar.dart';
+import 'package:fitfuel/components/home/challenges.dart';
+import 'package:fitfuel/components/home/join.dart';
 import 'package:flutter/material.dart';
-import 'package:fitfuel/components/home/landScapeCard.dart';
-import 'package:fitfuel/components/home/mainTitle.dart';
-import '../components/home/card.dart';
+import 'package:fitfuel/components/home/mainHome.dart';
+import 'package:fitfuel/components/home/navbar.dart';
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key}) : super(key: key);
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
+ const MyHomePage({Key? key}) : super(key: key);
+
+ @override
+ State<MyHomePage> createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  late List<PhotoCardData> photoCards;
-  late List<LandscapeCardData> landscapeCards;
+ int _selectedScreen = 0;
+ final PageController _pageController = PageController();
 
-  @override
-  void initState() {
-    super.initState();
-    photoCards = [
-      PhotoCardData(
-          text: 'Yoga for Beginners',
-          textUnder: '15min • Intermediate',
-          imageUrl: 'assets/images/png/yogaPose.png',
-          key: const Key("1")),
-      PhotoCardData(
-          text: 'Strength Training: Legs',
-          textUnder: '45min • Advanced',
-          imageUrl: 'assets/images/png/strengthTraining.png',
-          key: const Key("2")),
-    ];
-    landscapeCards = [
-      LandscapeCardData(
-          text: 'Wheelchair workout',
-          textUnder: 'Intermediate',
-          imageUrl: 'assets/images/png/wheelChair.png',
-          key: const Key("1")),
-      LandscapeCardData(
-          text: 'Power Lifting',
-          textUnder: 'Advanced',
-          imageUrl: 'assets/images/png/benchpress.png',
-          key: const Key("2")),
-    ];
-  }
+ @override
+ void dispose() {
+    _pageController.dispose();
+    super.dispose();
+ }
 
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          const NavBar(),
-          Expanded(
-            child: SingleChildScrollView(
-              scrollDirection: Axis.vertical,
-              child: Column(
-                children: [
-                  const TitleWiget(key: Key("1"), titleText: 'Pick a workout'),
-                  SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    padding: const EdgeInsets.fromLTRB(10.0, 0.0, 10.0, 0.0),
-                    child: Row(
-                      children: photoCards
-                          .expand((card) => [
-                                photoCard(
-                                  textunder: card.textUnder,
-                                  text: card.text,
-                                  imageUrl: card.imageUrl,
-                                  key: card.key,
-                                ),
-                                const SizedBox(
-                                  width: 20,
-                                )
-                              ])
-                          .toList(),
-                    ),
-                  ),
-                  const TitleWiget(
-                      key: Key("7"), titleText: 'Fitness Programs'),
-                  SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    padding: const EdgeInsets.all(10),
-                    child: Row(
-                      children: landscapeCards
-                          .expand((card) => [
-                                landScapeCard(
-                                  key: card.key,
-                                  imageUrl: card.imageUrl,
-                                  text: card.text,
-                                  textunder: card.textUnder,
-                                ),
-                                const SizedBox(
-                                  width: 20,
-                                )
-                              ])
-                          .toList(),
-                    ),
-                  ),
+ @override
+ Widget build(BuildContext context) {
+    return Scaffold(
+      body: Padding(
+        padding: const EdgeInsets.all(10),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            NavBar(
+              selected: _selectedScreen,
+              onIconSelected: (index) {
+                setState(() {
+                 _selectedScreen = index;
+                });
+                _pageController.animateToPage(
+                 index,
+                 duration: const Duration(milliseconds: 300),
+                 curve: Curves.easeInOut,
+                );
+              },
+            ),
+            Expanded(
+              child: PageView(
+                controller: _pageController,
+                physics: const NeverScrollableScrollPhysics(), // Disable swiping
+                onPageChanged: (index) {
+                 setState(() {
+                    _selectedScreen = index;
+                 });
+                },
+                children: const [
+                 MainHomePage(),
+                 ChallengesPage(),
+                 JoinPage()
                 ],
               ),
-            ),
-          ),
-        ],
-      );
-  }
+            )
+          ],
+        ),
+      ),
+    );
+ }
 }
