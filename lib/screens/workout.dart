@@ -4,6 +4,7 @@ import 'package:fitfuel/components/profile/subsubHeading.dart';
 import 'package:fitfuel/components/workout/card.dart';
 import 'package:fitfuel/components/workout/change.dart';
 import 'package:fitfuel/components/workout/logbutton.dart';
+import 'package:fitfuel/screens/startWorkout.dart';
 import 'package:flutter/material.dart';
 
 class WorkOutPage extends StatefulWidget {
@@ -79,12 +80,19 @@ class _WorkOutPageState extends State<WorkOutPage> {
                   imageUrl: workout.image,
                 ),
               )).toList(),
-          const Padding(
-            padding: EdgeInsets.all(8.0),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 LogButtonWidget(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const StartWorkoutPage()),
+                    );
+                  },
                   text: 'Start Log Day 1',
                 ),
               ],

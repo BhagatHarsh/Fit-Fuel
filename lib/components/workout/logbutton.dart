@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 
 class LogButtonWidget extends StatefulWidget {
   final String text;
-  const LogButtonWidget({super.key, required this.text});
+  final VoidCallback onPressed;
+  const LogButtonWidget(
+      {super.key, required this.text, required this.onPressed});
 
   @override
   _LogButtonWidgetState createState() => _LogButtonWidgetState();
@@ -19,7 +21,9 @@ class _LogButtonWidgetState extends State<LogButtonWidget> {
     double buttonWidth = screenWidth * 0.5;
 
     return InkWell(
-      onTap: () {},
+      onTap: () {
+        widget.onPressed();
+      },
       child: Container(
         width: buttonWidth, // Set the button width
         decoration: const BoxDecoration(
