@@ -59,6 +59,46 @@ class _FoodPageState extends State<FoodPage> {
                   SizedBox(
                     width: 15,
                   ),
+                  ChangeButton(
+                    text: 'Low Calories',
+                    scale: 0.3,
+                    height: 30,
+                  ),
+                  SizedBox(
+                    width: 15,
+                  ),
+                  ChangeButton(
+                    text: 'Vegetarian',
+                    scale: 0.3,
+                    height: 30,
+                  ),
+                  SizedBox(
+                    width: 15,
+                  ),
+                  ChangeButton(
+                    text: 'Snack',
+                    scale: 0.2,
+                    height: 30,
+                  ),
+                  SizedBox(
+                    width: 15,
+                  ),
+                  ChangeButton(
+                    text: 'Salad',
+                    scale: 0.2,
+                    height: 30,
+                  ),
+                  SizedBox(
+                    width: 15,
+                  ),
+                  ChangeButton(
+                    text: 'Soups',
+                    scale: 0.2,
+                    height: 30,
+                  ),
+                  SizedBox(
+                    width: 15,
+                  ),
                 ],
               ),
             ),
