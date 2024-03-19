@@ -3,8 +3,9 @@ import 'package:flutter/material.dart';
 class LogButtonWidget extends StatefulWidget {
   final String text;
   final VoidCallback onPressed;
+  final double scale;
   const LogButtonWidget(
-      {super.key, required this.text, required this.onPressed});
+      {super.key, required this.text, required this.onPressed, required this.scale});
 
   @override
   _LogButtonWidgetState createState() => _LogButtonWidgetState();
@@ -18,7 +19,7 @@ class _LogButtonWidgetState extends State<LogButtonWidget> {
 
     // Calculate button width based on screen width
     // For example, let's make the button 80% of the screen width
-    double buttonWidth = screenWidth * 0.5;
+    double buttonWidth = screenWidth * widget.scale;
 
     return InkWell(
       onTap: () {

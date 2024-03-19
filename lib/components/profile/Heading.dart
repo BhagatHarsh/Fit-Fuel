@@ -16,7 +16,7 @@ class _HeadingWidgetState extends State<HeadingWidget> {
       textAlign: TextAlign.left,
       style: const TextStyle(
           color: Color.fromRGBO(33, 25, 10, 1),
-          fontFamily: 'LexendBold',
+          fontFamily: 'LexendMedium',
           fontSize: 32,
           letterSpacing: -0.800000011920929,
           fontWeight: FontWeight.normal,

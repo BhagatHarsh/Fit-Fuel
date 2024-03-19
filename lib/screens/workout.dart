@@ -86,6 +86,7 @@ class _WorkOutPageState extends State<WorkOutPage> {
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 LogButtonWidget(
+                  scale: 0.5,
                   onPressed: () {
                     Navigator.push(
                       context,
