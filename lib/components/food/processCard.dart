@@ -26,6 +26,7 @@ class SLargeCardState extends State<LargeCard> {
         SubSubHeadingWidget(
           subsubHeading: widget.text,
         ),
+        
       ],
     );
   }

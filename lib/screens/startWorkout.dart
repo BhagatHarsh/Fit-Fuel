@@ -67,6 +67,9 @@ class _StartWorkoutPageState extends State<StartWorkoutPage> {
                     BuscuitWidget(
                       text: '10 Reps',
                     ),
+                    SizedBox(
+                      width: 10,
+                    ),
                     BuscuitWidget(
                       text: 'Weight',
                     ),
@@ -87,6 +90,9 @@ class _StartWorkoutPageState extends State<StartWorkoutPage> {
                     BuscuitWidget(
                       text: '10 Reps',
                     ),
+                    SizedBox(
+                      width: 10,
+                    ),
                     BuscuitWidget(
                       text: 'Weight',
                     ),
@@ -106,6 +112,9 @@ class _StartWorkoutPageState extends State<StartWorkoutPage> {
                   children: [
                     BuscuitWidget(
                       text: '10 Reps',
+                    ),
+                    SizedBox(
+                      width: 10,
                     ),
                     BuscuitWidget(
                       text: 'Weight',
@@ -131,6 +140,9 @@ class _StartWorkoutPageState extends State<StartWorkoutPage> {
                       TimerWidget(
                         unit: 'Minutes',
                         time: '01',
+                      ),
+                      SizedBox(
+                        width: 10,
                       ),
                       TimerWidget(
                         unit: 'Seconds',
