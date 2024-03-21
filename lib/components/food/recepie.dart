@@ -14,7 +14,6 @@ class RecepiePage extends StatefulWidget {
 }
 
 class _RecepiePageState extends State<RecepiePage> {
-  int _selectedScreen = 0;
   final PageController _pageController = PageController();
 
   @override
@@ -60,9 +59,6 @@ class _RecepiePageState extends State<RecepiePage> {
               children: [
                 InkWell(
                   onTap: () {
-                    setState(() {
-                      _selectedScreen = 0;
-                    });
                     _pageController.animateToPage(
                       0,
                       duration: const Duration(milliseconds: 300),
@@ -80,9 +76,6 @@ class _RecepiePageState extends State<RecepiePage> {
                 ),
                 InkWell(
                   onTap: () {
-                    setState(() {
-                      _selectedScreen = 1;
-                    });
                     _pageController.animateToPage(
                       1,
                       duration: const Duration(milliseconds: 300),
@@ -102,11 +95,7 @@ class _RecepiePageState extends State<RecepiePage> {
             child: PageView(
               controller: _pageController,
               physics: const NeverScrollableScrollPhysics(), // Disable swiping
-              onPageChanged: (index) {
-                setState(() {
-                  _selectedScreen = index;
-                });
-              },
+              onPageChanged: (index) {},
               children: const [
                 IngredientsPage(),
                 ProcessPage(),

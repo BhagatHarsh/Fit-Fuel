@@ -15,10 +15,11 @@ class _SubSubHeadingWidgetState extends State<SubSubHeadingWidget> {
     return Text(
       widget.subsubHeading,
       textAlign: TextAlign.left,
+      softWrap: true,
       style: const TextStyle(
           color: Color.fromRGBO(33, 25, 10, 1),
           fontFamily: 'LexendMedium',
-          fontSize: 16,
+          fontSize: 14,
           letterSpacing: 0,
           fontWeight: FontWeight.normal,
           height: 1.5),

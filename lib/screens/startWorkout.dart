@@ -1,5 +1,4 @@
 import 'package:fitfuel/components/home/mainTitle.dart';
-import 'package:fitfuel/components/profile/Heading.dart';
 import 'package:fitfuel/components/profile/subHeading.dart';
 import 'package:fitfuel/components/workout/biscuit.dart';
 import 'package:fitfuel/components/workout/logbutton.dart';
