@@ -41,7 +41,7 @@ class _ProfilePageState extends State<ProfilePage> {
               child: Padding(
                 padding: EdgeInsets.fromLTRB(0, 10, 0, 0),
                 child: UserNameWidget(
-                  userName: 'Mia',
+                  userName: 'Amber',
                 ),
               ),
             ),

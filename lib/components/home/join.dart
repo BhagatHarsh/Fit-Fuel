@@ -1,7 +1,19 @@
 import 'package:fitfuel/components/home/banner.dart';
 import 'package:fitfuel/components/home/mainTitle.dart';
 import 'package:fitfuel/components/profile/subsubHeading.dart';
+import 'package:fitfuel/components/workout/logbutton.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
+
+ Future<void> _launchPaytm() async {
+    final Uri paytmUrl = Uri.parse('https://paytm.com/'); // Replace with the actual Paytm URL scheme
+    try {
+      await launchUrl(paytmUrl);
+    } catch (e) {
+      // Handle the error, e.g., show a message to the user
+      print('Could not launch $paytmUrl: $e');
+    }
+ }
 
 class JoinPage extends StatefulWidget {
   const JoinPage({super.key});
@@ -71,6 +83,14 @@ class _JoinPageState extends State<JoinPage> {
             condition1: 'Best Value',
             condition2: 'Save 33%',
           ),
+          const SizedBox(
+            height: 10,
+          ),
+          const LogButtonWidget(
+            onPressed: _launchPaytm,
+            text: 'Buy',
+            scale: 0.9,
+          )
         ],
       ),
     );
