@@ -17,9 +17,12 @@ class _FoodPageState extends State<FoodPage> {
     return SingleChildScrollView(
       child: Column(
         children: [
-          const TitleWiget(
-            key: Key('foodTitle'),
-            titleText: 'Top Categories',
+          const Padding(
+            padding: EdgeInsets.all(15.0),
+            child: TitleWiget(
+              key: Key('foodTitle'),
+              titleText: 'Top Categories',
+            ),
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),

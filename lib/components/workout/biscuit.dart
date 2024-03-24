@@ -1,16 +1,33 @@
 import 'package:flutter/material.dart';
 
 class BuscuitWidget extends StatefulWidget {
-  final String text;
-  const BuscuitWidget({super.key, required this.text});
+ final String text;
+ final Function(String?) onSubmit;
+ final String? initialValue;
+ const BuscuitWidget({
+    Key? key,
+    required this.text,
+    required this.onSubmit,
+    this.initialValue,
+ }) : super(key: key);
 
-  @override
-  _BuscuitWidgetState createState() => _BuscuitWidgetState();
+ @override
+ _BuscuitWidgetState createState() => _BuscuitWidgetState();
 }
 
 class _BuscuitWidgetState extends State<BuscuitWidget> {
-  @override
-  Widget build(BuildContext context) {
+ late TextEditingController _weightController = TextEditingController();
+ late TextEditingController _repsController = TextEditingController();
+
+ @override
+ void initState() {
+    super.initState();
+    _weightController = TextEditingController(text: widget.initialValue ?? '');
+    _repsController = TextEditingController(text: widget.initialValue ?? ''); // Initialize reps controller
+ }
+
+ @override
+ Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
     return Container(
       decoration: const BoxDecoration(),
@@ -28,46 +45,103 @@ class _BuscuitWidgetState extends State<BuscuitWidget> {
               ),
               color: Color.fromRGBO(244, 239, 219, 1),
             ),
-            padding:  EdgeInsets.symmetric(horizontal: screenWidth*0.15, vertical: 16),
             child: Row(
               mainAxisSize: MainAxisSize.min,
               children: <Widget>[
-                Container(
-                  decoration: const BoxDecoration(),
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 0, vertical: 0),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: <Widget>[
-                      Container(
-                        decoration: const BoxDecoration(),
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 0, vertical: 0),
-                        child: Column(
-                          mainAxisSize: MainAxisSize.min,
-                          children: <Widget>[
-                            Text(
-                              widget.text,
-                              textAlign: TextAlign.left,
-                              style: const TextStyle(
-                                  color: Color.fromRGBO(160, 124, 28, 1),
-                                  fontFamily: 'LexendMedium',
-                                  fontSize: 16,
-                                  letterSpacing: 0,
-                                  fontWeight: FontWeight.normal,
-                                  height: 1.5),
-                            ),
-                          ],
+                if (widget.text == 'Weight')
+                 SizedBox(
+                    width: screenWidth * 0.45,
+                    child: TextField(
+                      controller: _weightController,
+                      keyboardType: TextInputType.number,
+                      decoration: const InputDecoration(
+                        labelStyle: TextStyle(
+                          color: Color.fromRGBO(160, 124, 28, 1),
+                          fontFamily: 'LexendMedium',
+                          fontSize: 16,
+                          letterSpacing: 0,
+                          fontWeight: FontWeight.normal,
                         ),
+                        labelText: 'Weight',
+                        hintText: 'Enter weight',
+                        border: OutlineInputBorder(),
                       ),
-                    ],
-                  ),
-                ),
+                      onSubmitted: (value) {
+                        String weight = _weightController.text;
+                        if (weight.isNotEmpty) {
+                          double weightValue = double.tryParse(weight) ?? 0;
+                          if (weightValue < 1) {
+                            widget.onSubmit('Weight must be greater than or equal to 1');
+                            _weightController.text = "";
+                          } else {
+                            widget.onSubmit(null);
+                          }
+                        } else {
+                          widget.onSubmit('Weight is required');
+                          _weightController.text = "";
+                        }
+                      },
+                    ),
+                 )
+                else if (widget.text == 'Reps')
+                 SizedBox(
+                    width: screenWidth * 0.45,
+                    child: TextField(
+                      controller: _repsController,
+                      keyboardType: TextInputType.number,
+                      decoration: const InputDecoration(
+                        labelStyle: TextStyle(
+                          color: Color.fromRGBO(160, 124, 28, 1),
+                          fontFamily: 'LexendMedium',
+                          fontSize: 16,
+                          letterSpacing: 0,
+                          fontWeight: FontWeight.normal,
+                        ),
+                        labelText: 'Reps',
+                        hintText: 'Enter reps',
+                        border: OutlineInputBorder(),
+                      ),
+                      onSubmitted: (value) {
+                        String reps = _repsController.text;
+                        if (reps.isNotEmpty) {
+                          int repsValue = int.tryParse(reps) ?? 0;
+                          if (repsValue < 1) {
+                            widget.onSubmit('Reps must be greater than or equal to 1');
+                            _repsController.text = "";
+                          } else {
+                            widget.onSubmit(null);
+                          }
+                        } else {
+                          widget.onSubmit('Reps are required');
+                          _repsController.text = "";
+                        }
+                      },
+                    ),
+                 )
+                else
+                 Padding(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: screenWidth * 0.15,
+                      vertical: 20,
+                    ),
+                    child: Text(
+                      widget.text,
+                      textAlign: TextAlign.left,
+                      style: const TextStyle(
+                        color: Color.fromRGBO(160, 124, 28, 1),
+                        fontFamily: 'LexendMedium',
+                        fontSize: 16,
+                        letterSpacing: 0,
+                        fontWeight: FontWeight.normal,
+                        height: 1.5,
+                      ),
+                    ),
+                 )
               ],
             ),
           ),
         ],
       ),
     );
-  }
+ }
 }

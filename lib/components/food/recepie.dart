@@ -49,9 +49,12 @@ class _RecepiePageState extends State<RecepiePage> {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const TitleWiget(
-            titleText: 'OatMeal',
-            key: Key("Food!"),
+          const Padding(
+            padding: EdgeInsets.all(15.0),
+            child: TitleWiget(
+              titleText: 'OatMeal',
+              key: Key("Food!"),
+            ),
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),

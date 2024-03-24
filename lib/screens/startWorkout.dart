@@ -15,6 +15,7 @@ class StartWorkoutPage extends StatefulWidget {
 }
 
 class _StartWorkoutPageState extends State<StartWorkoutPage> {
+  String? errorMessage;
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
@@ -60,17 +61,38 @@ class _StartWorkoutPageState extends State<StartWorkoutPage> {
                 const SizedBox(
                   height: 10,
                 ),
-                const Row(
+                Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     BuscuitWidget(
-                      text: '10 Reps',
+                      text: 'Reps',
+                      onSubmit: (String? error) {
+                        setState(() {
+                          errorMessage = error;
+                        });
+                        if (error != null) {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(content: Text(error)),
+                          );
+                        }
+                      },
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 10,
                     ),
                     BuscuitWidget(
                       text: 'Weight',
+                      initialValue: '10', // Set the initial value to 10
+                      onSubmit: (String? error) {
+                        setState(() {
+                          errorMessage = error;
+                        });
+                        if (error != null) {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(content: Text(error)),
+                          );
+                        }
+                      },
                     ),
                   ],
                 ),
@@ -83,17 +105,38 @@ class _StartWorkoutPageState extends State<StartWorkoutPage> {
                 const SizedBox(
                   height: 10,
                 ),
-                const Row(
+                Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     BuscuitWidget(
-                      text: '10 Reps',
+                      text: 'Reps',
+                      onSubmit:(String? error) {
+                        setState(() {
+                          errorMessage = error;
+                        });
+                        if (error != null) {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(content: Text(error)),
+                          );
+                        }
+                      },
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 10,
                     ),
                     BuscuitWidget(
                       text: 'Weight',
+                      initialValue: '10', // Set the initial value to 10
+                      onSubmit: (String? error) {
+                        setState(() {
+                          errorMessage = error;
+                        });
+                        if (error != null) {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(content: Text(error)),
+                          );
+                        }
+                      },
                     ),
                   ],
                 ),
@@ -106,17 +149,38 @@ class _StartWorkoutPageState extends State<StartWorkoutPage> {
                 const SizedBox(
                   height: 10,
                 ),
-                const Row(
+                Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     BuscuitWidget(
-                      text: '10 Reps',
+                      text: 'Reps',
+                      onSubmit: (String? error) {
+                        setState(() {
+                          errorMessage = error;
+                        });
+                        if (error != null) {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(content: Text(error)),
+                          );
+                        }
+                      },
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 10,
                     ),
                     BuscuitWidget(
+                      initialValue: '10', // Set the initial value to 10
                       text: 'Weight',
+                      onSubmit: (String? error) {
+                        setState(() {
+                          errorMessage = error;
+                        });
+                        if (error != null) {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(content: Text(error)),
+                          );
+                        }
+                      },
                     ),
                   ],
                 ),
