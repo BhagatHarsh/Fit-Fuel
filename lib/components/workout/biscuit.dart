@@ -1,33 +1,36 @@
 import 'package:flutter/material.dart';
 
 class BuscuitWidget extends StatefulWidget {
- final String text;
- final Function(String?) onSubmit;
- final String? initialValue;
- const BuscuitWidget({
+  final String text;
+  final Function(String?) onSubmit;
+  final String? initialValue;
+  const BuscuitWidget({
     Key? key,
     required this.text,
     required this.onSubmit,
     this.initialValue,
- }) : super(key: key);
+  }) : super(key: key);
 
- @override
- _BuscuitWidgetState createState() => _BuscuitWidgetState();
+  @override
+  _BuscuitWidgetState createState() => _BuscuitWidgetState();
 }
 
 class _BuscuitWidgetState extends State<BuscuitWidget> {
- late TextEditingController _weightController = TextEditingController();
- late TextEditingController _repsController = TextEditingController();
-
- @override
- void initState() {
+  late TextEditingController _weightController = TextEditingController();
+  late TextEditingController _repsController = TextEditingController();
+  late TextEditingController _minutesController = TextEditingController();
+  late TextEditingController _secondsController = TextEditingController();
+  @override
+  void initState() {
     super.initState();
     _weightController = TextEditingController(text: widget.initialValue ?? '');
-    _repsController = TextEditingController(text: widget.initialValue ?? ''); // Initialize reps controller
- }
+    _repsController = TextEditingController(text: widget.initialValue ?? '');
+    _minutesController = TextEditingController(text: '1');
+    _secondsController = TextEditingController(text: '0');
+  }
 
- @override
- Widget build(BuildContext context) {
+  @override
+  Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
     return Container(
       decoration: const BoxDecoration(),
@@ -49,7 +52,7 @@ class _BuscuitWidgetState extends State<BuscuitWidget> {
               mainAxisSize: MainAxisSize.min,
               children: <Widget>[
                 if (widget.text == 'Weight')
-                 SizedBox(
+                  SizedBox(
                     width: screenWidth * 0.45,
                     child: TextField(
                       controller: _weightController,
@@ -71,7 +74,8 @@ class _BuscuitWidgetState extends State<BuscuitWidget> {
                         if (weight.isNotEmpty) {
                           double weightValue = double.tryParse(weight) ?? 0;
                           if (weightValue < 1) {
-                            widget.onSubmit('Weight must be greater than or equal to 1');
+                            widget.onSubmit(
+                                'Weight must be greater than or equal to 1');
                             _weightController.text = "";
                           } else {
                             widget.onSubmit(null);
@@ -82,9 +86,9 @@ class _BuscuitWidgetState extends State<BuscuitWidget> {
                         }
                       },
                     ),
-                 )
+                  )
                 else if (widget.text == 'Reps')
-                 SizedBox(
+                  SizedBox(
                     width: screenWidth * 0.45,
                     child: TextField(
                       controller: _repsController,
@@ -106,7 +110,8 @@ class _BuscuitWidgetState extends State<BuscuitWidget> {
                         if (reps.isNotEmpty) {
                           int repsValue = int.tryParse(reps) ?? 0;
                           if (repsValue < 1) {
-                            widget.onSubmit('Reps must be greater than or equal to 1');
+                            widget.onSubmit(
+                                'Reps must be greater than or equal to 1');
                             _repsController.text = "";
                           } else {
                             widget.onSubmit(null);
@@ -117,31 +122,77 @@ class _BuscuitWidgetState extends State<BuscuitWidget> {
                         }
                       },
                     ),
-                 )
-                else
-                 Padding(
-                    padding: EdgeInsets.symmetric(
-                      horizontal: screenWidth * 0.15,
-                      vertical: 20,
+                  )
+                else if (widget.text == 'Minutes')
+                  SizedBox(
+                    width: screenWidth * 0.45,
+                    child: TextField(
+                      controller: _minutesController,
+                      keyboardType: TextInputType.number,
+                      decoration: const InputDecoration(
+                        labelStyle: TextStyle(
+                          color: Color.fromRGBO(160, 124, 28, 1),
+                          fontFamily: 'LexendMedium',
+                          fontSize: 16,
+                          letterSpacing: 0,
+                          fontWeight: FontWeight.normal,
+                        ),
+                        labelText: 'Minutes',
+                        hintText: 'Enter Minutes',
+                        border: OutlineInputBorder(),
+                      ),
+                      onSubmitted: (value) {
+                        widget.onSubmit(value);
+                      },
                     ),
-                    child: Text(
-                      widget.text,
-                      textAlign: TextAlign.left,
-                      style: const TextStyle(
-                        color: Color.fromRGBO(160, 124, 28, 1),
-                        fontFamily: 'LexendMedium',
-                        fontSize: 16,
-                        letterSpacing: 0,
-                        fontWeight: FontWeight.normal,
-                        height: 1.5,
+                  )
+                else if (widget.text == 'Seconds')
+                  SizedBox(
+                    width: screenWidth * 0.45,
+                    child: TextField(
+                      controller: _secondsController,
+                      keyboardType: TextInputType.number,
+                      decoration: const InputDecoration(
+                        labelStyle: TextStyle(
+                          color: Color.fromRGBO(160, 124, 28, 1),
+                          fontFamily: 'LexendMedium',
+                          fontSize: 16,
+                          letterSpacing: 0,
+                          fontWeight: FontWeight.normal,
+                        ),
+                        labelText: 'Seconds',
+                        hintText: 'Enter Seconds',
+                        border: OutlineInputBorder(),
+                      ),
+                      onSubmitted: (value) {
+                        widget.onSubmit(value);
+                      },
+                    ),
+                  )
+                else
+                  SizedBox(
+                   width: screenWidth * 0.44,
+                   height: 60,
+                    child: Center(
+                      child: Text(
+                        widget.text,
+                        textAlign: TextAlign.left,
+                        style: const TextStyle(
+                          color: Color.fromRGBO(160, 124, 28, 1),
+                          fontFamily: 'LexendMedium',
+                          fontSize: 16,
+                          letterSpacing: 0,
+                          fontWeight: FontWeight.normal,
+                          height: 1.5,
+                        ),
                       ),
                     ),
-                 )
+                  )
               ],
             ),
           ),
         ],
       ),
     );
- }
+  }
 }
