@@ -53,6 +53,7 @@ class _MainHomePageState extends State<MainHomePage> {
             child: Column(
               children: [
                 const TitleWiget(key: Key("1"), titleText: 'Pick a workout'),
+                const SizedBox(height: 20),
                 SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
                   padding: const EdgeInsets.fromLTRB(10.0, 0.0, 10.0, 0.0),
@@ -72,7 +73,9 @@ class _MainHomePageState extends State<MainHomePage> {
                         .toList(),
                   ),
                 ),
+                const SizedBox(height: 20),
                 const TitleWiget(key: Key("7"), titleText: 'Fitness Programs'),
+                const SizedBox(height: 20),
                 SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
                   padding: const EdgeInsets.all(10),
