@@ -33,7 +33,6 @@ class _StartWorkoutPageState extends State<StartWorkoutPage> {
       return;
     }
     _start = minutes * 60 + seconds; // Convert minutes and seconds to seconds
-    print('Starting timer with duration: $_start seconds'); // Debug print
 
     const oneSec = Duration(seconds: 1);
     _timer?.cancel(); // Ensure the timer is cancelled before restarting
@@ -330,11 +329,29 @@ class _StartWorkoutPageState extends State<StartWorkoutPage> {
                         settext: 'Start Timer',
                       ),
                       ElevatedButton(
-                        onPressed: isSet1Filled
-                            ? () {
-                                startTimer();
-                              }
-                            : null,
+                        onPressed: () {
+                          int minutes = int.tryParse(_minutesInput) ?? 0;
+                          if (minutes >= 2) {
+                            showDialog(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return AlertDialog(
+                                  title: const Text('Too much rest!'),
+                                  content: const Text(
+                                      'It is not adviced to take this much rest'),
+                                  actions: <Widget>[
+                                    TextButton(
+                                      child: const Text('OK'),
+                                      onPressed: () {
+                                        Navigator.of(context).pop();
+                                      },
+                                    ),
+                                  ],
+                                );
+                              },
+                            );
+                          }
+                        },
                         child: SvgPicture.asset(
                           'assets/images/svg/play.svg',
                           semanticsLabel: 'play',
